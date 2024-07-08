@@ -124,6 +124,32 @@ app.get("/", (req, res) => {
   res.send("Welcome to the Hall Booking API");
 });
 
+//booking a room
+app.get("/bookings", (req, res) => {
+  res.send(
+    "Use POST /bookings to book a room. Body should include customerName, date, startTime, endTime, and roomId."
+  );
+});
+
+// listing all rooms with bookings
+app.get("/rooms/bookings/description", (req, res) => {
+  res.send("Use GET /rooms/bookings to list all rooms with their bookings.");
+});
+
+//listing all customers with bookings
+app.get("/customers/bookings/description", (req, res) => {
+  res.send(
+    "Use GET /customers/bookings to list all customers with their bookings."
+  );
+});
+
+//listing a customer's bookings
+app.get("/customers/:name/bookings/description", (req, res) => {
+  res.send(
+    "Use GET /customers/:name/bookings to list all bookings for a specific customer."
+  );
+});
+
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
